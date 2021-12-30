@@ -17,7 +17,7 @@ import (
 	"fmt"
 	"os"
 
-	_ "github.com/gioco-play/easy-i18n/example/catalog"
+	_ "github.com/gioco-play/easy-i18n/example/locales"
 	"github.com/gioco-play/easy-i18n/i18n"
 	"golang.org/x/text/language"
 )
@@ -60,7 +60,7 @@ The easyi18n command manages message files used by the i18n package.
 go get -u github.com/gioco-play/easy-i18n/easyi18n
 easyi18n -h
 
-  update, u    merge translations and generate catalog
+  update, u    merge translations and generate locales
   extract, e   extracts strings to be translated from code
   generate, g  generates code to insert translated messages
 ```
@@ -99,9 +99,9 @@ Use `easyi18n extract . ./locales/en.json` to extract all i18n.Sprintf function 
 	  "hello world!": "你好世界！"
 	}
 	```
-3. After `zh-Hans.json` has been translated, run `easyi18n generate --pkg=catalog ./locales ./catalog/catalog.go`.
+3. After `zh-Hans.json` has been translated, run `easyi18n generate --pkg=locales ./locales ./locales/locales.go`.
 
-4. Import `catalog` package in main.go, example: `import _ "github.com/gioco-play/easy-i18n/example/catalog"` 
+4. Import `locales` package in main.go, example: `import _ "github.com/gioco-play/easy-i18n/example/locales"` 
 
 ### Translating new messages
 
@@ -110,7 +110,7 @@ If you have added new messages to your program:
 1. Run `easyi18n extract` to update `./locales/en.json` with the new messages.
 2. Run `easyi18n update ./locales/en.json` to generate updated `./locales/new-language.json` files.
 3. Translate all the messages in the `./locales/new-language.json` files.
-4. Run `easyi18n generate --pkg=catalog ./locales ./catalog/catalog.go` to merge the translated messages into the go files.
+4. Run `easyi18n generate --pkg=locales ./locales ./locales/locales.go` to merge the translated messages into the go files.
 
 ## For examples:
 
